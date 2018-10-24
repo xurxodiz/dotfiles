@@ -1,0 +1,19 @@
+#!/bin/sh
+
+DOTFILES=.dotfiles
+DOTGIT="git --git-dir=$HOME/$DOTFILES/ --work-tree=$HOME"
+
+git clone --bare https://github.com/xurxodiz/dotfiles.git $HOME/$DOTFILES
+alias dotgit="$DOTGIT"
+echo "alias dotgit=$DOTGIT" >> $HOME/.alias
+dotgit config --local status.showUntrackedFiles no
+
+mkdir -p $DOTFILES-backup
+dotgit checkout
+if [ $? = 0 ]; then
+  echo "Checked out dotfiles.";
+  else
+    echo "Backing up pre-existing dot files.";
+    dotgit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $DOTFILES-backup/{}
+fi;
+dotgit checkout
