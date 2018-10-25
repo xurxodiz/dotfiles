@@ -8,9 +8,8 @@ directory_name() {
     local PATH_PROMPT=""
     local CURRENT_PROMPT=""
 
-    local CURRENT=`dirname ${PWD}`
-    if [[ $CURRENT = / ]]; then
-        BASE_PROMTP="🌲"
+    if [[ $PWD = / ]]; then
+        BASE_PROMPT="🌲"
         PATH_PROMPT=""
         CURRENT_PROMPT=""
 
@@ -30,17 +29,19 @@ directory_name() {
                 CURRENT_PROMPT=""
             else
                 # We're not in the root: display root and also path from it
-                PATH_TO_CURRENT="${PWD#$GIT_ROOT}"
+                local PATH_TO_CURRENT="${PWD#$GIT_ROOT}"
 
                 PATH_PROMPT="${PATH_TO_CURRENT%/*}/"
                 CURRENT_PROMPT="%1~"
             fi
         else
             # We're not in a git repo: display full path
-            PATH_TO_CURRENT=$(print -P %3~)
+            local PATH_TO_CURRENT=$(print -P %3~)
+            local CURRENT=$(print -P %1~)
 
+            BASE_PROMPT=""
             PATH_PROMPT="${PATH_TO_CURRENT%/*}/"
-            CURRENT_PROMPT="%1~"
+            CURRENT_PROMPT="${CURRENT#/}"
         fi
     fi
     # base folder in magenta, intermediate path in cyan, current folder in yellow
