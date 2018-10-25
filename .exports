@@ -1,0 +1,26 @@
+# some utility scripts are useful to have in ~/bin
+# some scripts (stack) install things in ~/.local/bin
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+# scala may need this?
+export JAVA_HOME="`/usr/libexec/java_home`"
+
+# -R makes it support ANSI colors
+# -F makes it exit automatically if one screen only
+export PAGER='less -RF'
+
+# virtualenvwrapper config
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
+source /usr/local/bin/virtualenvwrapper.sh
+
+# show virtualenv in prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=
+
+# for ls to display colors
+unset LSCOLORS
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

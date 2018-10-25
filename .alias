@@ -1,0 +1,8 @@
+# manage dotfiles
+alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# install rmtrash, (either from the macports or by the brew.)
+alias trash="rmtrash"
+alias rm="echo Use 'trash', or the full path i.e. '/bin/rm'"
+
+alias more='less'

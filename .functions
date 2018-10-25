@@ -1,0 +1,29 @@
+# netcat connect to server and execute
+function nce {
+    local HOST=$1
+    local PORT=$2
+    local COMMAND=$3
+    local ARGS="${@:4}"
+    local TEMPPIPENAME="$(mktemp -u)_pipe"
+    mkfifo $TEMPPIPENAME
+    ((sleep 1; rm $TEMPPIPENAME) & ) 2>/dev/null
+    echo "Pipe path is $TEMPPIPENAME"
+    echo "Connecting to $HOST:$PORT and executing \"$COMMAND\" with args \"$ARGS\""
+    nc $HOST $PORT < $TEMPPIPENAME | tee "${TEMPPIPENAME}_input.txt" | $COMMAND $ARGS | tee $TEMPPIPENAME | tee "${TEMPPIPENAME}_output.txt"
+}
+
+# pretty print an html-encoded json string
+function html-json {
+    echo $1 | xargs -0 printf '%b\n' | recode html..ascii | jq -S
+}
+
+# repeat and wait
+function raw {
+    echo "Repeat and wait, to cancel CTRL C"
+    while true; do
+        echo -ne '\033c'
+        date
+        "${@:2}"
+        read -k -s -t $1;
+    done
+}

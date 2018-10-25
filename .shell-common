@@ -1,0 +1,9 @@
+source .alias
+source .exports
+source .functions
+source .profile
+
+if [ -e .shell-work ]
+then
+    source .shell-work
+fi
