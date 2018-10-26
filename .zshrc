@@ -1,9 +1,9 @@
 # common config for all shells
-source .shell-common
+source $HOME/.shell-common
 
 # below, specific config for zsh
 
-source .oh-my-zshrc
+source $HOME/.oh-my-zshrc
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

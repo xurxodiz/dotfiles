@@ -1,9 +1,9 @@
-source .alias
-source .exports
-source .functions
-source .profile
+source $HOME/.alias
+source $HOME/.exports
+source $HOME/.functions
+source $HOME/.profile
 
-if [ -e .shell-work ]
+if [ -e $HOME/.shell-work ]
 then
-    source .shell-work
+    source $HOME/.shell-work
 fi
