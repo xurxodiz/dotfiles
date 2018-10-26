@@ -6,15 +6,17 @@
 [merge]
 	ff = only
 
+[pull]
+	rebase = true
+
 [alias]
 	hist = log --pretty=format:\"%Cred%h%Creset %C(yellow)%ad%Creset %s%Cgreen%d%Creset %C(blue)[%an]%Creset\" --graph --date=iso
 	lg = log --pretty=format:\"%Cred%h%Creset%Cgreen%d%Creset %s %C(blue)<%an>%Creset %C(yellow)[%ad]%Creset\" --graph --date=short
 	update = pull --ff-only
-	d = diff -M
 	lga = !git lg --all
-	lgp = !git lg -p
-	st = status
-	co = checkout
+	undo-add = reset
+	undo-commit = reset --soft HEAD~1
+	undo-stage = reset HEAD --
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
 	# check how the merge of dev into master will go: git dry dev master
@@ -35,4 +37,4 @@
 	pushInsteadOf = https://github.com/
 
 [includeIf "gitdir:~/repos/"]
-    path = ~/repos/.gitconfig
+	path = ~/repos/.gitconfig
