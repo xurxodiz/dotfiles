@@ -3,7 +3,7 @@ source $HOME/.exports
 source $HOME/.functions
 source $HOME/.profile
 
-if [ -e $HOME/.shell-work ]
+if [ -e $HOME/.shell-local ]
 then
-    source $HOME/.shell-work
+    source $HOME/.shell-local
 fi
