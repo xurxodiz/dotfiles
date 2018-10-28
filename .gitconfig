@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Jorge Diz Pico
-	email = xurxodiz@xurxodiz.eu
+	email = xurxo@xurxodiz.eu
 
 [merge]
 	ff = only
