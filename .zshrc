@@ -1,12 +1,10 @@
 # common config for all shells
 source $HOME/.shell-common
 
-# below, specific config for zsh
+# from here on below specific config for zsh
 
+# load OMZ specific config
 source $HOME/.oh-my-zshrc
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -16,19 +14,26 @@ fpath=(~/.zsh/completion $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit && compinit -i
 
-# sane history keeping
-setopt hist_ignore_all_dups
-bindkey "$terminfo[kcuu1]" up-line-or-local-history
-bindkey "$terminfo[kcud1]" down-line-or-local-history
-up-line-or-local-history() {
-    zle set-local-history 1
-    zle up-line-or-history
-    zle set-local-history 0
+# sensible history options
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+
+# Use these lines to enable search by globs, e.g. gcc*foo.c:
+bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^S" history-incremental-pattern-search-forward
+
+# http://chneukirchen.org/blog/archive/2012/02/10-new-zsh-tricks-you-may-not-know.html
+# This will make C-z on the command line resume vi again, so you can toggle between them easily. Even if you typed something already!
+foreground-vi() {
+    fg %vi
 }
-zle -N up-line-or-local-history
-down-line-or-local-history() {
-    zle set-local-history 1
-    zle down-line-or-history
-    zle set-local-history 0
-}
-zle -N down-line-or-local-history
+zle -N foreground-vi
+bindkey '^Z' foreground-vi
+
+# suggest commands as you type
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# syntax highlight on command line (must be last of file!)
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
