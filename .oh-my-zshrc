@@ -5,9 +5,6 @@ export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 # Theme to load
 ZSH_THEME="starfox"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
   colored-man-pages
