@@ -11,5 +11,6 @@ Plugin 'jreybert/vimagit'
 Plugin 'w0rp/ale'
 Plugin 'scrooloose/syntastic'
 Plugin 'panagosg7/vim-annotations'
+Plugin 'vimwiki/vimwiki'
 
 call vundle#end()            " required
