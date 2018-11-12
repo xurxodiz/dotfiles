@@ -19,10 +19,11 @@
 	undo-stage = reset HEAD --
 	undo-changes = checkout --
 	undo-changes-all = reset --hard
+	fresh = clean -dfX
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
-	# check how the merge of dev into master will go: git dry dev master
-	dry = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
+	# check how the merge of dev into master will go: git dry-merge dev master
+	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
 
 [color]
 	ui = true
