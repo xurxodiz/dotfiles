@@ -27,3 +27,7 @@ function raw {
         read -k -s -t $1;
     done
 }
+
+# open split window with file. usage: peek file.txt
+peek() { tmux split-window -p 33 $EDITOR $@ || exit; }
+
