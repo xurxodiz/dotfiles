@@ -20,10 +20,6 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 
-# Use these lines to enable search by globs, e.g. gcc*foo.c:
-bindkey "^R" history-incremental-pattern-search-backward
-bindkey "^S" history-incremental-pattern-search-forward
-
 # http://chneukirchen.org/blog/archive/2012/02/10-new-zsh-tricks-you-may-not-know.html
 # This will make C-z on the command line resume vi again, so you can toggle between them easily. Even if you typed something already!
 foreground-vi() {
@@ -37,3 +33,4 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # syntax highlight on command line (must be last of file!)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
