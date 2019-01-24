@@ -23,4 +23,14 @@ unset LSCOLORS
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# FZF
+export FZF_DEFAULT_OPTS="-m -1 -0 --history=$HOME/.fzf_history --reverse --min-height 15 --bind '?:toggle-preview' --color=dark"
+export FZF_COMPLETION_OPTS="--preview=\"file -b {}\" --preview-window=down:1"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:wrap:hidden"
+export FZF_ALT_C_OPTS="--preview 'ls -A {}' --preview-window right:25%:hidden"
+if hash rg 2>/dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --hidden --follow -uuu --files --no-messages'
+fi
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
