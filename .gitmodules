@@ -7,3 +7,9 @@
 [submodule ".vim/liquid-types.vim"]
 	path = .vim/liquid-types.vim
 	url = https://github.com/ucsd-progsys/liquid-types.vim
+[submodule ".oh-my-zsh-custom/plugins/zsh-autosuggestions"]
+	path = .oh-my-zsh-custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule ".oh-my-zsh-custom/plugins/zsh-syntax-highlighting"]
+	path = .oh-my-zsh-custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting

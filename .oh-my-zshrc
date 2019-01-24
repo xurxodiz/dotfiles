@@ -6,7 +6,7 @@ export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="starfox"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(
+plugins+=(
   colored-man-pages
   colorize
   docker
@@ -15,8 +15,8 @@ plugins=(
   pip
   python
   sudo
-  tu-ci
   virtualenv
+  zsh-autosuggestions
   zsh-syntax-highlighting
   z
 )

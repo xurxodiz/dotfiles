@@ -27,10 +27,3 @@ foreground-vi() {
 }
 zle -N foreground-vi
 bindkey '^Z' foreground-vi
-
-# suggest commands as you type
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# syntax highlight on command line (must be last of file!)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
