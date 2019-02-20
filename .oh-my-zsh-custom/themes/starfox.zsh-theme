@@ -1,6 +1,7 @@
 # Based upon:
 # - 'pygmalion' oh-my-zsh theme
 # - https://stackoverflow.com/questions/16147173/command-prompt-directory-styling
+# - get_unpushed_commits from egarcia (adapted)
 
 directory_name() {
 
@@ -48,19 +49,44 @@ directory_name() {
     echo "%{$fg[magenta]%}${BASE_PROMPT}%{$reset_color%}%{$fg[cyan]%}${PATH_PROMPT}%{$reset_color%}%{$fg[yellow]%}${CURRENT_PROMPT}%{$reset_color%}"
 }
 
+get_unpushed_commits () {
+    no_remote_branch="no-remote-branch"
+
+    is_git_repo=$(git rev-parse --is-inside-work-tree 2> /dev/null || echo false)
+    unpushed_commits="git cherry -vv 2> /dev/null"
+    if "$is_git_repo"; then
+        output_unpushed=`eval $unpushed_commits || echo $no_remote_branch`
+        if [ "$output_unpushed" = "$no_remote_branch" ]; then
+            output="⬆️"
+        else
+            output="🔼"
+        fi;
+    else
+            output=""
+    fi;
+    echo $output
+}
 
 prompt_starfox() {
-    ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}(%{$fg[green]%}"
-    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%})"
+    ZSH_THEME_GIT_PROMPT_PREFIX=""
+    ZSH_THEME_GIT_PROMPT_SUFFIX=""
     ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
+    MY_GIT_PREFIX=" %{$reset_color%}(%{$fg[green]%}"
+    MY_GIT_SUFIX=" %{$reset_color%})"
 
     ZSH_THEME_VIRTUALENV_PREFIX="(%{$fg[green]%}"
     ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}) "
 
     local virtualenv=$(virtualenv_prompt_info) # provided by plugin
     local base_prompt="[$(directory_name)]" # see function above
-    local gitinfo=$(git_prompt_info) # provided by plugin
+    # git_prompt_info provided by zsh
+    gitpromptinfo=$(git_prompt_info)
+    if [ -n "$gitpromptinfo" ]; then
+        local gitinfo="$MY_GIT_PREFIX$gitpromptinfo$(get_unpushed_commits)$MY_GIT_SUFIX"
+    else
+        local gitinfo=""
+    fi;
     local post_prompt='%{$fg[cyan]%}⇒%{$reset_color%}  '
 
     local base_prompt_nocolor=$(echo "$base_prompt" | perl -pe "s/%\{[^}]+\}//g")
