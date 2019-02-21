@@ -62,9 +62,19 @@ get_unpushed_commits () {
             output="🔼"
         fi;
     else
-            output=""
+        output=""
     fi;
     echo $output
+}
+
+exit_color() {
+    local LAST_EXIT_CODE=$?
+    if [[ $LAST_EXIT_CODE -ne 0 ]]; then
+        color="red"
+    else
+        color="cyan"
+    fi;
+    echo $color
 }
 
 prompt_starfox() {
@@ -79,7 +89,9 @@ prompt_starfox() {
     ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}) "
 
     local virtualenv=$(virtualenv_prompt_info) # provided by plugin
+
     local base_prompt="[$(directory_name)]" # see function above
+
     # git_prompt_info provided by zsh
     gitpromptinfo=$(git_prompt_info)
     if [ -n "$gitpromptinfo" ]; then
@@ -87,7 +99,8 @@ prompt_starfox() {
     else
         local gitinfo=""
     fi;
-    local post_prompt='%{$fg[cyan]%}⇒%{$reset_color%}  '
+
+    local post_prompt='%{$fg[$(exit_color)]%}⇒%{$reset_color%}  '
 
     local base_prompt_nocolor=$(echo "$base_prompt" | perl -pe "s/%\{[^}]+\}//g")
     local post_prompt_nocolor=$(echo "$post_prompt" | perl -pe "s/%\{[^}]+\}//g")
