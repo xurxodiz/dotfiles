@@ -57,9 +57,13 @@ get_unpushed_commits () {
     if "$is_git_repo"; then
         output_unpushed=`eval $unpushed_commits || echo $no_remote_branch`
         if [ "$output_unpushed" = "$no_remote_branch" ]; then
-            output="⬆️"
+            output="⬆️ "
         else
-            output="🔼"
+            quantity=`echo output_unpushed | wc -l | tr -d '[:space:]'`
+            case $quantity in
+                "0")  output="";;
+                *)    output="🔼";;
+            esac
         fi;
     else
         output=""
@@ -83,7 +87,7 @@ prompt_starfox() {
     ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
     MY_GIT_PREFIX=" %{$reset_color%}(%{$fg[green]%}"
-    MY_GIT_SUFIX=" %{$reset_color%})"
+    MY_GIT_SUFIX="%{$reset_color%})"
 
     ZSH_THEME_VIRTUALENV_PREFIX="(%{$fg[green]%}"
     ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}) "
