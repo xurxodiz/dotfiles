@@ -59,7 +59,7 @@ get_unpushed_commits () {
         if [ "$output_unpushed" = "$no_remote_branch" ]; then
             output="⬆️ "
         else
-            quantity=`echo output_unpushed | wc -l | tr -d '[:space:]'`
+            quantity=`eval $unpushed_commits | wc -l | tr -d '[:space:]'`
             case $quantity in
                 "0")  output="";;
                 *)    output="🔼";;
