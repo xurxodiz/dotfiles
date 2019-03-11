@@ -57,12 +57,12 @@ get_unpushed_commits () {
     if "$is_git_repo"; then
         output_unpushed=`eval $unpushed_commits || echo $no_remote_branch`
         if [ "$output_unpushed" = "$no_remote_branch" ]; then
-            output="⬆️ "
+            output="🔼";
         else
             quantity=`eval $unpushed_commits | wc -l | tr -d '[:space:]'`
             case $quantity in
                 "0")  output="";;
-                *)    output="🔼";;
+                *)    output="⬆️ ";;
             esac
         fi;
     else
