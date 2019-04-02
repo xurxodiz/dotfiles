@@ -6,3 +6,6 @@ alias trash="rmtrash"
 alias rm="echo Use 'trash', or the full path i.e. '/bin/rm'"
 
 alias more='less'
+
+# thefuck
+eval $(thefuck --alias)
