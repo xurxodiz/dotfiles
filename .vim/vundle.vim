@@ -13,5 +13,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'panagosg7/vim-annotations'
 Plugin 'vimwiki/vimwiki'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'plytophogy/vim-virtualenv'
 
 call vundle#end()            " required
