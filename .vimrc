@@ -31,9 +31,8 @@ hi GitGutterDelete ctermbg=235 ctermfg=245
 hi GitGutterChangeDelete ctermbg=235 ctermfg=245
 hi EndOfBuffer ctermfg=237 ctermbg=235
 
-set statusline=%=&P\ %f\ %m
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
-set noshowmode
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y(%{virtualenv#statusline()})%=%c,%l/%L\ %P
 
 
