@@ -2,6 +2,9 @@
 # some scripts (stack) install things in ~/.local/bin
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# have brew install supersede defaults (e.g. bash)
+export PATH="/usr/local/bin:$PATH"
+
 # scala may need this?
 export JAVA_HOME="`/usr/libexec/java_home`"
 
