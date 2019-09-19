@@ -7,5 +7,8 @@ alias rm="echo Use 'trash', or the full path i.e. '/bin/rm'"
 
 alias more='less'
 
+# go to git repo root
+alias groot='cd $(git root)'
+
 # thefuck
 eval $(thefuck --alias)
