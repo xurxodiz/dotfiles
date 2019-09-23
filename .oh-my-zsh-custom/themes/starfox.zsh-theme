@@ -89,8 +89,8 @@ prompt_starfox() {
     MY_GIT_PREFIX=" %{$reset_color%}(%{$fg[green]%}"
     MY_GIT_SUFIX="%{$reset_color%})"
 
-    ZSH_THEME_VIRTUALENV_PREFIX="(%{$fg[green]%}"
-    ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}) "
+    ZSH_THEME_VIRTUALENV_PREFIX=" (%{$fg[blue]%}"
+    ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%})"
 
     local virtualenv=$(virtualenv_prompt_info) # provided by plugin
 
@@ -104,21 +104,12 @@ prompt_starfox() {
         local gitinfo=""
     fi;
 
-    local post_prompt='%{$fg[$(exit_color)]%}⇒%{$reset_color%}  '
+    local post_prompt='%{$fg[$(exit_color)]%}❯%{$reset_color%} '
 
-    local base_prompt_nocolor=$(echo "$base_prompt" | perl -pe "s/%\{[^}]+\}//g")
-    local post_prompt_nocolor=$(echo "$post_prompt" | perl -pe "s/%\{[^}]+\}//g")
+    local time="[%{$fg[yellow]%}$(date +%H:%M:%S)%{$reset_color%}] "
+    local nl=$'\n%{\r%}'
 
-    local gitinfo_nocolor=$(echo "$gitinfo" | perl -pe "s/%\{[^}]+\}//g")
-    local exp_nocolor="$(print -P \"$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
-    local prompt_length=${#exp_nocolor}
-
-    local nl=" "
-
-    if [[ $prompt_length -gt 80 ]]; then
-        nl=$'\n%{\r%}';
-    fi
-    PROMPT="$virtualenv$base_prompt$gitinfo$nl$post_prompt"
+    PROMPT="$time$base_prompt$virtualenv$gitinfo$nl$post_prompt"
 }
 
 precmd_functions+=(prompt_starfox)
