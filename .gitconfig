@@ -44,5 +44,5 @@
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 
-[includeIf "gitdir:~/repos/"]
-	path = ~/repos/.gitconfig
+[include]
+        path = /Users/jdiz/.gitconfig-local
