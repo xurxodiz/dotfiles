@@ -30,6 +30,9 @@
 	remote-branches = remote show origin
 	root = rev-parse --show-toplevel
 
+[diff]
+	mnemonicprefix = true
+
 [color]
 	ui = true
 
