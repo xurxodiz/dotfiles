@@ -37,11 +37,12 @@
 	ui = true
 
 [credential]
-	helper = cache --timeout=30000
+	helper = store
 
 [core]
 	editor = vim
 	pager = diff-so-fancy | $PAGER
+	excludesfile = ~/.gitignore
 
 # This will replace "https://github.com" with "git@github.com" in the remote URL, but only when pushing (so it uses ssh for push)
 [url "git@github.com:"]
