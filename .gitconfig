@@ -42,7 +42,7 @@
 [core]
 	editor = vim
 	pager = diff-so-fancy | $PAGER
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
 
 # This will replace "https://github.com" with "git@github.com" in the remote URL, but only when pushing (so it uses ssh for push)
 [url "git@github.com:"]
