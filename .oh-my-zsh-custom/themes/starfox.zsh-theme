@@ -9,12 +9,14 @@ directory_name() {
     local PATH_PROMPT=""
     local CURRENT_PROMPT=""
 
-    if [[ $PWD = / ]]; then
+    local REALPWD=$(realpath $PWD)
+
+    if [[ $REALPWD = / ]]; then
         BASE_PROMPT="🌲"
         PATH_PROMPT=""
         CURRENT_PROMPT=""
 
-    elif [[ $PWD = $HOME ]]; then
+    elif [[ $REALPWD = $HOME ]]; then
         BASE_PROMPT="🏠"
         PATH_PROMPT=""
         CURRENT_PROMPT=""
@@ -24,13 +26,13 @@ directory_name() {
             # We're in a git repo.
             local GIT_ROOT=$(git rev-parse --show-toplevel)
             BASE_PROMPT=$(basename ${GIT_ROOT})
-            if [[ $PWD = $GIT_ROOT ]]; then
+            if [[ $REALPWD -ef $GIT_ROOT ]]; then
                 # We're in the root: display only this folder
                 PATH_PROMPT=""
                 CURRENT_PROMPT=""
             else
                 # We're not in the root: display root and also path from it
-                local PATH_TO_CURRENT="${PWD#$GIT_ROOT}"
+                local PATH_TO_CURRENT="${REALPWD#$GIT_ROOT}"
 
                 PATH_PROMPT="${PATH_TO_CURRENT%/*}/"
                 CURRENT_PROMPT="%1~"
