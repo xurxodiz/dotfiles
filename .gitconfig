@@ -41,7 +41,7 @@
 
 [core]
 	editor = vim
-	pager = diff-so-fancy | $PAGER
+	pager = delta
 	excludesfile = ~/.config/git/ignore
 
 # This will replace "https://github.com" with "git@github.com" in the remote URL, but only when pushing (so it uses ssh for push)
@@ -49,4 +49,13 @@
 	pushInsteadOf = https://github.com/
 
 [include]
-        path = /Users/jdiz/.gitconfig-local
+	path = /Users/jdiz/.gitconfig-local
+
+[delta]
+	plus-color = "#012800"
+	minus-color = "#340001"
+	syntax-theme = Monokai Extended
+	line-numbers = true
+
+[interactive]
+	diffFilter = delta --color-only
