@@ -29,6 +29,7 @@
 	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
 	remote-branches = remote show origin
 	root = rev-parse --show-toplevel
+	past-status = show --name-status
 
 [diff]
 	mnemonicprefix = true
