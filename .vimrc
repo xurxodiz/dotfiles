@@ -35,4 +35,8 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 set laststatus=2
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y(%{virtualenv#statusline()})%=%c,%l/%L\ %P
 
-
+set hlsearch    " highlight all search results
+set ignorecase  " do case insensitive search
+set incsearch   " show incremental search results as you type
+set number      " display line number
+set noswapfile  " disable swap file
