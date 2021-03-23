@@ -15,13 +15,15 @@
 [alias]
 	hist = log --pretty=format:\"%Cred%h%Creset %C(yellow)%ad%Creset %s%Cgreen%d%Creset %C(blue)[%an]%Creset\" --graph --date=iso
 	lg = log --pretty=format:\"%Cred%h%Creset%Cgreen%d%Creset %s %C(blue)<%an>%Creset %C(yellow)[%ad]%Creset\" --graph --date=short
-	update = pull --ff-only
 	lga = !git lg --all
+	lgm = !git lg --first-parent --merges
+	update = pull --ff-only
 	undo-add = reset
+	undo-unstaged = restore --
 	undo-commit = reset --soft HEAD~1
-	undo-stage = reset HEAD --
-	undo-changes = checkout --
-	undo-changes-all = reset --hard
+	undo-stage = restore --staged --
+	undo-changes = restore --staged --worktree --
+	undo-changes-all = restore --staged --worktree
 	fresh = clean -dfX
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
@@ -29,7 +31,9 @@
 	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
 	remote-branches = remote show origin
 	root = rev-parse --show-toplevel
-	past-status = show --name-status
+	show-status = show --name-status
+	# Allows you to easily pick what to rebase
+	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
 
 [diff]
 	mnemonicprefix = true

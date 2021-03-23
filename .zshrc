@@ -14,6 +14,9 @@ fpath=(~/.zsh/completion $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit && compinit -i
 
+# useful regex mass renaming
+autoload -U zmv
+
 # sensible history options
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
@@ -53,3 +56,10 @@ function precmd() {
   fi
 }
 
+# mcfly
+# https://github.com/cantino/mcfly
+eval "$(mcfly init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
