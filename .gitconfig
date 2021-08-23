@@ -27,6 +27,7 @@
 	fresh = clean -dfX
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
+	maiff = !git diff $(git merge-base HEAD main) HEAD
 	# check how the merge of dev into master will go: git dry-merge dev master
 	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
 	remote-branches = remote show origin
@@ -48,6 +49,17 @@
 	editor = vim
 	pager = delta
 	excludesfile = ~/.config/git/ignore
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	features = navigate
+	hunk-header-style = omit
+	line-numbers = true
+	line-numbers-left-format = "{nm:>3} "
+	line-numbers-right-format = "{np:>3} "
+ 	max-line-length = 0
 
 # This will replace "https://github.com" with "git@github.com" in the remote URL, but only when pushing (so it uses ssh for push)
 [url "git@github.com:"]

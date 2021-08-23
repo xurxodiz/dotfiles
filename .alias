@@ -12,3 +12,6 @@ alias groot='cd $(git root)'
 
 # thefuck
 eval $(thefuck --alias)
+
+# gron
+alias ungron="gron --ungron"
