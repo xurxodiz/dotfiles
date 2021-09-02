@@ -3,16 +3,27 @@
 DOTFILES=.dotfiles
 DOTGIT="git --git-dir=$HOME/$DOTFILES/ --work-tree=$HOME"
 
+echo "Cloning bare dotfiles repo..."
 git clone --bare https://github.com/xurxodiz/dotfiles.git $HOME/$DOTFILES
 alias dotgit="$DOTGIT"
 dotgit config --local status.showUntrackedFiles no
 
-mkdir -p $DOTFILES-backup
+echo "Attempting to bring files..."
 dotgit checkout
 if [ $? = 0 ]; then
-  echo "Checked out dotfiles.";
-  else
-    echo "Backing up pre-existing dot files.";
-    dotgit checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $DOTFILES-backup/{}
-fi;
-dotgit checkout
+    echo "Checked out dotfiles.";
+else
+    echo "Current home is not empty, clashes found"
+    echo "Backing up pre-existing dot files..."
+    mkdir -p $DOTFILES-backup
+    dotgit checkout 2>&1 | egrep "^\t" | awk {'print $1'} | xargs -I{} mv {} $DOTFILES-backup/ 
+    echo "Done."
+    echo "Attempting to bring files again..."
+    dotgit checkout
+    echo "Checked out dotfiles."
+fi
+
+echo "Updating submodules..."
+dotgit submodule init
+dotgit submodule update
+echo "Submodules updated."
