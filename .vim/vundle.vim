@@ -7,11 +7,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'jreybert/vimagit'
 Plugin 'w0rp/ale'
-Plugin 'scrooloose/syntastic'
 Plugin 'panagosg7/vim-annotations'
-Plugin 'vimwiki/vimwiki'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'plytophogy/vim-virtualenv'
 

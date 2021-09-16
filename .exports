@@ -40,3 +40,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # mcfly
 export MCFLY_FUZZY=true
+
+# zsh will complain about security otherwise due to permissions and homebrew
+export ZSH_DISABLE_COMPFIX="true"
