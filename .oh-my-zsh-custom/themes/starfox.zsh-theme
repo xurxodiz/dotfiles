@@ -39,8 +39,8 @@ directory_name() {
             fi
         else
             # We're not in a git repo: display full path
-            local PATH_TO_CURRENT=$(print -P %~)
-            local CURRENT=$(print -P %1~)
+            local PATH_TO_CURRENT="$(print -P %~)"
+            local CURRENT="$(print -P %1~)"
 
             BASE_PROMPT=""
             PATH_PROMPT="${PATH_TO_CURRENT%/*}/"
