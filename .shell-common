@@ -1,9 +1,0 @@
-source $HOME/.alias
-source $HOME/.exports
-source $HOME/.functions
-source $HOME/.profile
-
-if [ -e $HOME/.shell-local ]
-then
-    source $HOME/.shell-local
-fi

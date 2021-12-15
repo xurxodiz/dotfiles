@@ -1,11 +1,3 @@
-# common config for all shells
-source $HOME/.shell-common
-
-# from here on below specific config for zsh
-
-# load OMZ specific config
-source $HOME/.oh-my-zshrc
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -56,10 +48,9 @@ function precmd() {
   fi
 }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # fix moving by words with alt
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
+
+# zsh will complain about security otherwise due to permissions and homebrew
+export ZSH_DISABLE_COMPFIX="true"
