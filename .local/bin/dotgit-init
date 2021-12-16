@@ -5,5 +5,5 @@ DOTGIT="git --git-dir=$HOME/$DOTFILES/ --work-tree=$HOME"
 
 git init --bare $HOME/$DOTFILES
 alias dotgit="$DOTGIT"
-echo "alias dotgit=$DOTGIT" >> $HOME/.alias
+echo "alias dotgit=$DOTGIT" >> $HOME/.config/zsh/.alias.zsh
 dotgit config --local status.showUntrackedFiles no
