@@ -18,8 +18,8 @@ These are my dotfiles.
 5. Open vim and run `:PluginInstall`.
 
 6. If you're setting up a new machine:
-  1. You might want to open Screenshot app and change the screenshot folder in the options menu (e.g. to \~/Screenshots).
-  2. You might want to go to iTerm2 2 > Preferences > Profiles > Keys > Mappings > Presets > Natural Text Editing, it will enable you to move through words with Alt+Left/Right arrow, and delete the with Alt+Backspace.
+    1. You might want to open Screenshot app and change the screenshot folder in the options menu (e.g. to \~/Screenshots).
+    2. You might want to go to iTerm2 2 > Preferences > Profiles > Keys > Mappings > Presets > Natural Text Editing, it will enable you to move through words with Alt+Left/Right arrow, and delete the with Alt+Backspace.
 
 That's it!
 
