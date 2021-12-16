@@ -1,10 +1,5 @@
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# for completions
-fpath=(~/.zsh/completion $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -Uz compinit && compinit -i
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 # useful regex mass renaming
 autoload -U zmv
@@ -15,18 +10,6 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 unsetopt SHARE_HISTORY
-
-# http://chneukirchen.org/blog/archive/2012/02/10-new-zsh-tricks-you-may-not-know.html
-# This will make C-z on the command line resume vi again, so you can toggle between them easily. Even if you typed something already!
-foreground-vi() {
-    fg %vi
-}
-zle -N foreground-vi
-bindkey '^Z' foreground-vi
-
-#
-# store commands in history file only if they return success
-#
 
 # called before a history line is saved.  See zshmisc(1).
 function zshaddhistory() {
@@ -39,6 +22,10 @@ function zshaddhistory() {
   return 2
 }
 
+#
+# store commands in history file only if they return success
+#
+
 # zsh hook called before the prompt is printed.  See zshmisc(1).
 function precmd() {
   # Write the last command if successful, using the history buffered by
@@ -48,9 +35,17 @@ function precmd() {
   fi
 }
 
-# fix moving by words with alt
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
+# http://chneukirchen.org/blog/archive/2012/02/10-new-zsh-tricks-you-may-not-know.html
+# This will make C-z on the command line resume vi again, so you can toggle between them easily. Even if you typed something already!
+foreground-vi() {
+    fg %vi
+}
+zle -N foreground-vi
+bindkey '^Z' foreground-vi
 
-# zsh will complain about security otherwise due to permissions and homebrew
-export ZSH_DISABLE_COMPFIX="true"
+# fix moving by words with alt
+# (unneeded as long as iTerm2 has Natural Text Editing)
+# bindkey "\e\e[D" backward-word
+# bindkey "\e\e[C" forward-word
+# bindkey "^[^?"" backward-kill-word
+

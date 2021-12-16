@@ -1,0 +1,27 @@
+import atexit
+import os
+import sys
+try:
+    import readline
+except ImportError:
+    print("Module readline not available.")
+else:
+    import rlcompleter
+    readline.parse_and_bind('tab:complete')
+    print("pythonrc :: AutoCompletion Loaded")
+
+# History
+historyPath = os.path.join(os.environ.get('XDG_STATE_HOME'), 'python/history' + str(sys.version_info[0]))
+
+if os.path.exists(historyPath):
+    readline.read_history_file(historyPath)
+
+def save_history(historyPath=historyPath):
+    import readline
+    readline.write_history_file(historyPath)
+    print("pythonrc :: history saved to " + historyPath)
+
+atexit.register(save_history)
+
+# anything not deleted (sys and os) will remain in the interpreter session
+del atexit, readline, rlcompleter, save_history, historyPath

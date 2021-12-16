@@ -34,6 +34,7 @@
 	show-status = show --name-status
 	# Allows you to easily pick what to rebase
 	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
+	ls = !git ls-tree --full-tree -r --name-only HEAD
 
 [diff]
 	mnemonicprefix = true

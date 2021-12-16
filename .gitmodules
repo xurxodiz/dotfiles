@@ -1,9 +1,6 @@
-[submodule "oh-my-zsh"]
+[submodule ".config/omz/oh-my-zsh"]
 	path = .config/omz/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim
 [submodule ".config/omz/custom/plugins/zsh-completions"]
 	path = .config/omz/custom/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
@@ -13,3 +10,6 @@
 [submodule ".config/omz/custom/plugins/zsh-autosuggestions"]
 	path = .config/omz/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule ".config/vim/bundle/Vundle.vim"]
+	path = .config/vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim

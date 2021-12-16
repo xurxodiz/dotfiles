@@ -1,6 +1,6 @@
 #!/usr/bin/env escript
 %% -*- erlang -*-
 main(_) ->
- io:format(standard_error,"~s~n",["running .erlang.rebar in home directory"]),
+ io:format(standard_error,"~s~n",["running rebar.erlang from XDG_CONFIG_HOME directory"]),
  io:format("Adding Quviq: ~p~n", [code:add_paths(["/Users/jorge/quviq/pulse-1.44.1/ebin","/Users/jorge/quviq/eqc-1.44.1/ebin","/Users/jorge/quviq/pulse_otp-1.44.1/ebin"])]).
 
