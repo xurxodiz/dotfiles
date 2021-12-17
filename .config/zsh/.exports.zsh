@@ -50,9 +50,12 @@ mkdir -p `dirname $HISTFILE`
 # For moving .vim into .config/vim
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
-export ZSHZ_DATA="$XDG_STATE_HOME/.z"
+# jumping around with z
+export _Z_DATA="$XDG_STATE_HOME/.z"
 
+# history of less
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+mkdir -p `dirname $LESSHISTFILE`
 
 # moves python history into XDG_STATE_HOME
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
