@@ -44,6 +44,8 @@ export SAVEHIST=10000
 # Plus, sub shells & external commands don't need this var.
 # Hence, we put it in .zshrc and don't export it.
 HISTFILE=$XDG_STATE_HOME/zsh/history
+# it's not created automatically and history won't be saved otherwise
+mkdir -p `dirname $HISTFILE`
 
 # For moving .vim into .config/vim
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
