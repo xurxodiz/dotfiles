@@ -9,7 +9,9 @@ These are my dotfiles.
 
 2. Install [Homebrew](brew.sh)
     1. Run `brew bundle install --file .config/brew/Brewfile` in your home.
-    2. You will probably install extra packages beyond that; run `brew bundle dump --file .config/brew/Brewfile.local` to track the actual list. If any of those packages you think it's useful to keep around across machine, move the relevant line into `.config/brew/Brewfile` as you please.
+    2. If you want to keep a log of the extra packages you install in the current system, follow this steps:
+        * `brew bundle dump --file .config/brew/Brewfile.local` to create a full list of this system
+        * `comm -13 .config/brew/Brewfile .config/brew/Brewfile.local > .config/brew/Brewfile.delta` to create the diff
 
 3. Remember to run `/usr/local/opt/fzf/install --xdg` to enable fzf-zsh integration
     1. You may need to `mkdir -p ~/.local/state/fzf` first
