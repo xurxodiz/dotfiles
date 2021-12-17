@@ -3,6 +3,8 @@ export ZSH=$XDG_CONFIG_HOME/omz/oh-my-zsh
 export ZSH_CUSTOM=$XDG_CONFIG_HOME/omz/custom
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump-${(%):-%m}-${ZSH_VERSION}"
+# permission conflict with homebrew, disable check
+export ZSH_DISABLE_COMPFIX=true
 
 # ensure the file is created there and not elsewhere
 # Create a cache folder if it isn't exists
