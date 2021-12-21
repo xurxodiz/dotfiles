@@ -8,9 +8,6 @@ set undodir=$XDG_STATE_HOME/vim/undo//,.
 " Vundle
 source $XDG_CONFIG_HOME/vim/vundle.vim
 
-" Plugin configuration
-source $XDG_CONFIG_HOME/vim/plugin-config.vim
-
 " fzf
 set rtp+=/usr/local/opt/fzf
 
