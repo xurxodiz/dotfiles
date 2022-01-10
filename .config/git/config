@@ -35,6 +35,7 @@
 	# Allows you to easily pick what to rebase
 	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
 	ls = !git ls-tree --full-tree -r --name-only HEAD
+	jedi = push --force
 
 [diff]
 	mnemonicprefix = true
