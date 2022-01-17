@@ -4,6 +4,7 @@
 
 [merge]
 	ff = only
+	conflictstyle = diff3
 
 [push]
 	default = current
@@ -39,6 +40,7 @@
 
 [diff]
 	mnemonicprefix = true
+	colorMoved = default
 
 [color]
 	ui = true
@@ -54,6 +56,7 @@
 	diffFilter = delta --color-only
 
 [delta]
+	navigate = true
 	plus-color = syntax "#012800"
 	minus-color = normal "#340001"
 	syntax-theme = Monokai Extended
