@@ -54,12 +54,18 @@
 	diffFilter = delta --color-only
 
 [delta]
+	plus-color = syntax "#012800"
+	minus-color = normal "#340001"
+	syntax-theme = Monokai Extended
 	features = navigate
 	hunk-header-style = omit
 	line-numbers = true
 	line-numbers-left-format = "{nm:>3} "
 	line-numbers-right-format = "{np:>3} "
- 	max-line-length = 0
+	max-line-length = 0
+
+[url "https://github.com"]
+        insteadOf = git://github.com
 
 # This will replace "https://github.com" with "git@github.com" in the remote URL, but only when pushing (so it uses ssh for push)
 [url "git@github.com:"]
@@ -67,12 +73,6 @@
 
 [include]
 	path = local.config
-
-[delta]
-	plus-color = "#012800"
-	minus-color = "#340001"
-	syntax-theme = Monokai Extended
-	line-numbers = true
 
 [interactive]
 	diffFilter = delta --color-only
