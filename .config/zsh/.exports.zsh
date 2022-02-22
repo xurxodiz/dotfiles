@@ -59,3 +59,8 @@ mkdir -p `dirname $LESSHISTFILE`
 
 # moves python history into XDG_STATE_HOME
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
+
+# android stuff
+export ANDROID_SDK_ROOT=$XDG_DATA_HOME/android
+export ANDROID_EMULATOR_HOME=$XDG_DATA_HOME/android
+export ANDROID_SDK_HOME=$XDG_DATA_HOME/android
