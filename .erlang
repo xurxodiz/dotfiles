@@ -1,3 +1,3 @@
 io:format(standard_error,"~s~n",["running .erlang in home directory"]).
 
-io:format("Adding Quviq: ~p~n", [code:add_paths(["/Users/jorge/quviq/pulse-1.44.1/ebin","/Users/jorge/quviq/eqc-1.44.1/ebin","/Users/jorge/quviq/pulse_otp-1.44.1/ebin"])]).
+io:format("Loading Quviq: ~p~n", [code:add_paths(["/Users/jorge/quviq/pulse-1.44.1/ebin","/Users/jorge/quviq/eqc-1.44.1/ebin","/Users/jorge/quviq/pulse_otp-1.44.1/ebin"])]).
