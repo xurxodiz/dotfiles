@@ -64,3 +64,6 @@ export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/android
 export ANDROID_EMULATOR_HOME=$XDG_DATA_HOME/android
 export ANDROID_SDK_HOME=$XDG_DATA_HOME/android
+
+# by default only goes there if existing, trying to force it…
+export ZSH_PIP_CACHE_FILE=$XDG_CACHE_HOME/pip/zsh-cache
