@@ -12,3 +12,6 @@ alias groot='cd $(git root)'
 
 # gron
 alias ungron="gron --ungron"
+
+# kerl
+alias kerl_activate='(){ . $KERL_DEFAULT_INSTALL_DIR/$1/activate ;}'

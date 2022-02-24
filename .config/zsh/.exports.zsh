@@ -67,3 +67,12 @@ export ANDROID_SDK_HOME=$XDG_DATA_HOME/android
 
 # by default only goes there if existing, trying to force it…
 export ZSH_PIP_CACHE_FILE=$XDG_CACHE_HOME/pip/zsh-cache
+
+# kerl
+export KERL_CONFIG=$XDG_CONFIG_HOME/kerl/kerlrc
+export KERL_BASE_DIR=$XDG_DATA_HOME/kerl
+export KERL_DEFAULT_INSTALL_DIR=$XDG_DATA_HOME/kerl/installations
+mkdir -p `dirname $KERL_CONFIG`
+mkdir -p `dirname $KERL_BASE_DIR`
+mkdir -p `dirname KERL_DEFAULT_INSTALL_DIR`
+export KERL_ENABLE_PROMPT=1

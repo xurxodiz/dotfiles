@@ -83,6 +83,17 @@ exit_color() {
     echo $color
 }
 
+kerl_prompt() {
+    local pmpt=`kerl prompt || echo ""`
+
+    if [ -n "$pmpt" ]; then
+        local pmpt_clean=`echo $pmpt | tr -d ' ()'`
+        echo " (%{$fg[blue]%}$pmpt_clean%{$reset_color%})"
+    else
+        echo ""
+    fi;
+}
+
 prompt_starfox() {
     ZSH_THEME_GIT_PROMPT_PREFIX=""
     ZSH_THEME_GIT_PROMPT_SUFFIX=""
@@ -95,6 +106,8 @@ prompt_starfox() {
     ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%})"
 
     local virtualenv=$(virtualenv_prompt_info) # provided by plugin
+
+    local kerlprompt=$(kerl_prompt) # kerl only works with PS1
 
     local base_prompt="[$(directory_name)]" # see function above
 
@@ -111,7 +124,7 @@ prompt_starfox() {
     local time="[%{$fg[yellow]%}$(date +%H:%M:%S)%{$reset_color%}] "
     local nl=$'\n%{\r%}'
 
-    PROMPT="$time$base_prompt$virtualenv$gitinfo$nl$post_prompt"
+    PROMPT="$time$base_prompt$virtualenv$kerlprompt$gitinfo$nl$post_prompt"
 }
 
 precmd_functions+=(prompt_starfox)
