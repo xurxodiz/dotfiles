@@ -84,7 +84,7 @@ exit_color() {
 }
 
 kerl_prompt() {
-    local pmpt=`kerl prompt || echo ""`
+    local pmpt=`(command -v kerl && kerl prompt) || echo ""`
 
     if [ -n "$pmpt" ]; then
         local pmpt_clean=`echo $pmpt | tr -d ' ()'`

@@ -18,6 +18,8 @@ ZSH_THEME="starfox"
 # for completions, these must come before the OMZ file below
 fpath=($ZSH_CACHE_DIR/completion $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
+export ASDF_DIR=`brew --prefix asdf`/libexec
+fpath=(${ASDF_DIR}/completions $fpath)
 
 # Which plugins would you like to load? (plugins can be found in ~/.config/omz/plugins/*)
 plugins+=(
