@@ -94,6 +94,10 @@ kerl_prompt() {
     fi;
 }
 
+error_code() {
+  echo "%(?..(%?%) )"
+}
+
 prompt_starfox() {
     ZSH_THEME_GIT_PROMPT_PREFIX=""
     ZSH_THEME_GIT_PROMPT_SUFFIX=""
@@ -119,7 +123,7 @@ prompt_starfox() {
         local gitinfo=""
     fi;
 
-    local post_prompt='%{$fg[$(exit_color)]%}❯%{$reset_color%} '
+    local post_prompt='%{$fg[$(exit_color)]%}$(error_code)❯%{$reset_color%} '
 
     local time="[%{$fg[yellow]%}$(date +%H:%M:%S)%{$reset_color%}] "
     local nl=$'\n%{\r%}'
