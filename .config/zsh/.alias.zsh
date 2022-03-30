@@ -15,3 +15,19 @@ alias ungron="gron --ungron"
 
 # kerl
 alias kerl_activate='(){ . $KERL_DEFAULT_INSTALL_DIR/$1/activate ;}'
+
+# useful
+alias ..='cd ..'
+alias ...="cd ../.."
+
+
+boop () {
+  local last="$?"
+  if [[ "$last" == '0' ]]; then
+    say great
+  else
+    say damnit
+  fi
+  $(exit "$last")
+}
+
