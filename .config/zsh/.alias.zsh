@@ -31,3 +31,6 @@ boop () {
   $(exit "$last")
 }
 
+function mkcd { mkdir -p "$1"; cd "$1"; }
+
+alias _="cd $(mktemp -d) ; "
