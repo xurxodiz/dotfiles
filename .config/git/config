@@ -24,7 +24,8 @@
 	undo-stage = restore --staged --
 	undo-changes = restore --staged --worktree --
 	undo-changes-all = restore --staged --worktree
-	fresh = clean -dfX
+	fresh = clean -fX
+	wipe = clean -fd
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
 	maiff = !git diff $(git merge-base HEAD main) HEAD
