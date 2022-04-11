@@ -23,7 +23,7 @@
 	undo-commit = reset --soft HEAD~1
 	undo-stage = restore --staged --
 	undo-changes = restore --staged --worktree --
-	undo-changes-all = restore --staged --worktree
+	undo-changes-all = restore --staged --worktree .
 	fresh = clean -fX
 	wipe = clean -fd
 	iff = !git diff $(git merge-base HEAD integration) HEAD
