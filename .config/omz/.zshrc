@@ -28,7 +28,9 @@ plugins+=(
   docker
   docker-compose
   fzf
+  fzf-tab
   git
+  gitfast
   pip
   python
   virtualenv
@@ -37,6 +39,5 @@ plugins+=(
   zsh-syntax-highlighting
   z
 )
-
 
 source $ZSH/oh-my-zsh.sh

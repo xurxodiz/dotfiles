@@ -13,3 +13,6 @@
 [submodule ".config/vim/bundle/Vundle.vim"]
 	path = .config/vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
+[submodule ".config/omz/custom/plugins/fzf-tab"]
+	path = .config/omz/custom/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab

@@ -25,7 +25,7 @@
 	undo-changes = restore --staged --worktree --
 	undo-changes-all = restore --staged --worktree .
 	fresh = clean -fX
-	wipe = !git undo-changes-all && clean -fdx
+	wipe = !git undo-changes-all && git clean -fdx
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
 	maiff = !git diff $(git merge-base HEAD main) HEAD
@@ -38,6 +38,7 @@
 	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
 	ls = !git ls-tree --full-tree -r --name-only HEAD
 	jedi = push --force
+	add-all-unstaged = add -u
 
 [diff]
 	mnemonicprefix = true
