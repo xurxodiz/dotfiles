@@ -9,7 +9,7 @@ These are my dotfiles.
 
 2. Install [Homebrew](brew.sh)
     1. Run `brew bundle install --file .config/brew/Brewfile` in your home.
-    2. If you want to keep a log of the extra packages you install in the current system, follow this steps:
+    2. If you want to keep a log of the extra packages you install in the current system, follow these steps:
         * `brew bundle dump --file .config/brew/Brewfile.local` to create a full list of this system
         * `comm -13 .config/brew/Brewfile .config/brew/Brewfile.local > .config/brew/Brewfile.delta` to create the diff
 
