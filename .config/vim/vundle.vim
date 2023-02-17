@@ -7,6 +7,7 @@ call vundle#begin("$XDG_CONFIG_HOME/vim/bundle")
 
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()            " required
