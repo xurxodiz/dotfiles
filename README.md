@@ -11,7 +11,9 @@ These are my dotfiles.
     1. Run `brew bundle install --file .config/brew/Brewfile` in your home.
     2. If you want to keep a log of the extra packages you install in the current system, follow these steps:
         * `brew bundle dump --file .config/brew/Brewfile.local` to create a full list of this system
-        * `comm -13 .config/brew/Brewfile .config/brew/Brewfile.local > .config/brew/Brewfile.delta` to create the diff
+        * `cat .config/brew/Brewfile | sort > .config/brew/Brewfile.o` to sort the repo file
+        * `cat .config/brew/Brewfile.local | sort > .config/brew/Brewfile.local.o` to sort the system file
+        * `comm -13 .config/brew/Brewfile.o .config/brew/Brewfile.local.o > .config/brew/Brewfile.delta.o` to create the diff
 
 3. Remember to run `/usr/local/opt/fzf/install --xdg` to enable fzf-zsh integration
     1. You may need to `mkdir -p ~/.local/state/fzf` first
