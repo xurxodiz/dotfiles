@@ -68,6 +68,7 @@
 	line-numbers-left-format = "{nm:>3} "
 	line-numbers-right-format = "{np:>3} "
 	max-line-length = 0
+	side-by-side = true
 
 [url "https://github.com"]
         insteadOf = git://github.com
