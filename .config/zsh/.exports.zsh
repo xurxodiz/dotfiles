@@ -64,6 +64,7 @@ export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
 export ANDROID_SDK_ROOT=$XDG_DATA_HOME/android
 export ANDROID_EMULATOR_HOME=$XDG_DATA_HOME/android
 export ANDROID_SDK_HOME=$XDG_DATA_HOME/android
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 # by default only goes there if existing, trying to force it…
 export ZSH_PIP_CACHE_FILE=$XDG_CACHE_HOME/pip/zsh-cache
@@ -85,3 +86,20 @@ export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=${XDG_CONFIG_HOME}/pip/default-python-p
 export ASDF_NPM_DEFAULT_PACKAGES_FILE=${XDG_CONFIG_HOME}/npm/default-npm-packages
 export ASDF_GEM_DEFAULT_PACKAGES_FILE=${XDG_CONFIG_HOME}/gem/default-gems
  . ${ASDF_DIR}/asdf.sh
+
+
+# force wget to use XDG
+mkdir -p $XDG_DATA_HOME/wget
+export hsts_file="$XDG_DATA_HOME/wget/hsts"
+
+# docker xdg
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+# node repl history xdg
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+# npm xdg
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+# postgresql history xdg
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
