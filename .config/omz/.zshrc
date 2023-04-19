@@ -25,6 +25,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 plugins+=(
   colored-man-pages
   colorize
+  direnv
   docker
   docker-compose
   fzf
