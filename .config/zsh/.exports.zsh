@@ -103,3 +103,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # postgresql history xdg
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+
+# hex xdg
+export MIX_XDG=1
