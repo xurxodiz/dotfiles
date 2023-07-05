@@ -35,7 +35,7 @@
 	root = rev-parse --show-toplevel
 	show-status = show --name-status
 	# git show-diff feature main -> lists commits in feature branch not in main branch
-	show-diff = "!f() { git lg $1 ^$2; }; f"
+	show-diff = "!f() { git lg --no-merges $1 ^$2; }; f"
 	# Allows you to easily pick what to rebase
 	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
 	ls = !git ls-tree --full-tree -r --name-only HEAD
