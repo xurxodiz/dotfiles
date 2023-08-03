@@ -49,9 +49,6 @@
 [color]
 	ui = true
 
-[credential]
-	helper = store
-
 [core]
 	editor = vim
 	pager = delta
