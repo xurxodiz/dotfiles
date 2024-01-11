@@ -41,21 +41,10 @@
 	ls = !git ls-tree --full-tree -r --name-only HEAD
 	jedi = push --force
 	add-all-unstaged = add -u
-	dt = difftool
 
 [diff]
 	mnemonicprefix = true
 	colorMoved = default
-	tool = difftastic
-
-[difftool]
-	prompt = false
-
-[difftool "difftastic"]
-	cmd = difft "$LOCAL" "$REMOTE"
-
-[pager]
-	difftool = true
 
 [color]
 	ui = true
@@ -63,9 +52,6 @@
 [core]
 	editor = vim
 	pager = delta
-
-[interactive]
-	diffFilter = delta --color-only
 
 [delta]
 	navigate = true
