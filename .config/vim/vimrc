@@ -1,9 +1,26 @@
 set runtimepath+=$XDG_CONFIG_HOME/vim,XDG_CONFIG_HOME/vim/after
 set viminfo+=n$XDG_CONFIG_HOME/vim/viminfo
 
-set directory=$XDG_STATE_HOME/vim/swap//,.,~/tmp,/var/tmp,/tmp
-set backupdir=$XDG_STATE_HOME/vim/backup//,.,~/tmp,~/
-set undodir=$XDG_STATE_HOME/vim/undo//,.
+set undofile
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+set backup                        " enable backups
+set swapfile                      " enable swaps
+set directory=$XDG_STATE_HOME/vim/swap//,.,~/tmp,/var/tmp,/tmp " swap files
+set backupdir=$XDG_STATE_HOME/vim/backup//,.,~/tmp,~/          " backups
+set undodir=$XDG_STATE_HOME/vim/undo//,.                       " undo files
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
 
 " Vundle
 source $XDG_CONFIG_HOME/vim/vundle.vim
@@ -43,7 +60,6 @@ set hlsearch    " highlight all search results
 set ignorecase  " do case insensitive search
 set incsearch   " show incremental search results as you type
 set number      " display line number
-set noswapfile  " disable swap file
 set backspace=indent,eol,start
 
 autocmd BufNewFile,BufRead *.zsh setlocal filetype=zsh
