@@ -79,14 +79,12 @@ mkdir -p `dirname KERL_DEFAULT_INSTALL_DIR`
 export KERL_ENABLE_PROMPT=1
 
 # asdf
-export ASDF_DIR=$(brew --prefix asdf)/libexec
 export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdf/asdfrc
 export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=${XDG_CONFIG_HOME}/pip/default-python-packages
 export ASDF_NPM_DEFAULT_PACKAGES_FILE=${XDG_CONFIG_HOME}/npm/default-npm-packages
 export ASDF_GEM_DEFAULT_PACKAGES_FILE=${XDG_CONFIG_HOME}/gem/default-gems
- . ${ASDF_DIR}/asdf.sh
-
+export PATH="${ASDF_DATA_DIR}/shims:$PATH"
 
 # force wget to use XDG
 mkdir -p $XDG_DATA_HOME/wget
