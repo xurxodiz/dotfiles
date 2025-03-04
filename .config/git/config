@@ -1,70 +1,109 @@
-# This is Git's per-user configuration file.
-[user]
-	name = Jorge Diz Pico
-
-[merge]
-	ff = only
-	conflictstyle = diff3
-
-[push]
-	default = current
-	autoSetupRemote = true
-[pull]
-	rebase = true
-
 [alias]
+	add-all-unstaged = add -u
+	# check how the merge of dev into master will go: git dry-merge dev master
+	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
+	fresh = clean -fX
+	# Allows you to easily pick what to rebase
+	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
 	hist = log --pretty=format:\"%Cred%h%Creset %C(yellow)%ad%Creset %s%Cgreen%d%Creset %C(blue)[%an]%Creset\" --graph --date=iso
+	iff = !git diff $(git merge-base HEAD integration) HEAD
+	jedi = push --force
 	lg = log --pretty=format:\"%Cred%h%Creset%Cgreen%d%Creset %s %C(blue)<%an>%Creset %C(yellow)[%ad]%Creset\" --graph --date=short
 	lga = !git lg --all
 	lgm = !git lg --first-parent --merges
-	update = pull --ff-only
-	undo-add = reset
-	undo-unstaged = restore --
-	undo-commit = reset --soft HEAD~1
-	undo-stage = restore --staged --
-	undo-changes = restore --staged --worktree --
-	undo-changes-all = restore --staged --worktree .
-	fresh = clean -fX
-	wipe = !git undo-changes-all && git clean -fdx
-	iff = !git diff $(git merge-base HEAD integration) HEAD
+	ls = !git ls-tree --full-tree -r --name-only HEAD
 	miff = !git diff $(git merge-base HEAD master) HEAD
 	maiff = !git diff $(git merge-base HEAD main) HEAD
-	# check how the merge of dev into master will go: git dry-merge dev master
-	dry-merge = "!f() { git merge-tree `git merge-base $2 $1` $2 $1; }; f"
 	remote-branches = remote show origin
 	root = rev-parse --show-toplevel
-	show-status = show --name-status
 	# git show-diff feature main -> lists commits in feature branch not in main branch
 	show-diff = "!f() { git lg --no-merges $1 ^$2; }; f"
-	# Allows you to easily pick what to rebase
-	frbi = "!f() { git rebase -i $(git log --pretty=oneline --color=always | fzf --ansi | cut -d ' ' -f1)^ ; }; f"
-	ls = !git ls-tree --full-tree -r --name-only HEAD
-	jedi = push --force
-	add-all-unstaged = add -u
+	show-status = show --name-status
+	undo-add = reset
+	undo-changes = restore --staged --worktree --
+	undo-changes-all = restore --staged --worktree .
+	undo-commit = reset --soft HEAD~1
+	undo-stage = restore --staged --
+	undo-unstaged = restore --
+	update = pull --ff-only
+	wipe = !git undo-changes-all && git clean -fdx
 
-[diff]
-	mnemonicprefix = true
-	colorMoved = default
+[branch]
+	sort = -committerdate
 
 [color]
 	ui = true
+
+[column]
+	ui = auto
+
+[commit]
+	verbose = true
 
 [core]
 	editor = vim
 	pager = delta
 
 [delta]
-	navigate = true
-	plus-color = syntax "#012800"
-	minus-color = normal "#340001"
-	syntax-theme = Monokai Extended
 	features = navigate
 	hunk-header-style = omit
 	line-numbers = true
 	line-numbers-left-format = "{nm:>3} "
 	line-numbers-right-format = "{np:>3} "
 	max-line-length = 0
+	minus-color = normal "#340001"
+	navigate = true
+	plus-color = syntax "#012800"
 	side-by-side = true
+	syntax-theme = Monokai Extended
+
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
+
+[help]
+	autocorrect = prompt
+
+[include]
+	path = local.config
+
+[init]
+	defaultBranch = main
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictstyle = zdiff3
+	ff = only
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
+# reuse recorded resolutions (during rebases)
+[rerere]
+	autoUpdate = true
+	enabled = true
+
+[tag]
+	sort = version:refname
 
 [url "https://github.com"]
         insteadOf = git://github.com
@@ -73,8 +112,5 @@
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 
-[include]
-	path = local.config
-
-[interactive]
-	diffFilter = delta --color-only
+[user]
+	name = Jorge Diz Pico
