@@ -29,6 +29,7 @@ These are my dotfiles.
         * Also, the best color preset is either `Solarized Dark` (included) or maybe [`Selenized Dark`](https://github.com/jan-warchol/selenized/tree/master/terminals/iterm) (higher contrast version).
         * Also, setting window transparency to 5 looks cool.
         * Also, this would all be much easier if iTerm2 kept their fscking preferences in `.config` instead of in `Application Support`.
+        * Also, check for new sessions to reuse the previous directory (`iTerm2 > Preferences > Profiles > Working Directory > Reuse previous session’s directory`
 
 That's it!
 
