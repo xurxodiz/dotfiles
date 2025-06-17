@@ -23,13 +23,8 @@ These are my dotfiles.
 
 5. Open `vim` and run `:PluginInstall`.
 
-6. If you're setting up a new machine:
-    1. You might want to open Screenshot app and change the screenshot folder in the options menu (e.g. to `~/Screenshots`).
-    2. You might want to go to `iTerm2 > Preferences > Profiles > Keys > Mappings > Presets > Natural Text Editing`, it will enable you to move through words with `Alt+Left/Right arrow`, and delete them with `Alt+Backspace`.
-        * Also, the best color preset is either `Solarized Dark` (included) or maybe [`Selenized Dark`](https://github.com/jan-warchol/selenized/tree/master/terminals/iterm) (higher contrast version).
-        * Also, setting window transparency to 5 looks cool.
-        * Also, this would all be much easier if iTerm2 kept their fscking preferences in `.config` instead of in `Application Support`.
-        * Also, check for new sessions to reuse the previous directory (`iTerm2 > Preferences > Profiles > Working Directory > Reuse previous session’s directory`)
+6. Go to `iTerm2 > Settings > General > Settings`. Check `Load settings from a custom folder or URL` and write `~/.config/iterm2`, then select `Save Changes Automatically`
+
+7. If you're setting up a new machine, you might want to open Screenshot app and change the screenshot folder in the options menu (e.g. to `~/Screenshots`).
 
 That's it!
-
