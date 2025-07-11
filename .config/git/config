@@ -8,6 +8,7 @@
 	hist = log --pretty=format:\"%Cred%h%Creset %C(yellow)%ad%Creset %s%Cgreen%d%Creset %C(blue)[%an]%Creset\" --graph --date=iso
 	iff = !git diff $(git merge-base HEAD integration) HEAD
 	jedi = push --force
+	last-touched = "!f() { FILES=\"$(git ls-tree --name-only HEAD .)\"; MAXLEN=0; IFS=\"$(printf '\\n\\b')\"; for f in $FILES; do if [ ${#f} -gt $MAXLEN ]; then MAXLEN=${#f}; fi; done; for f in $FILES; do str=\"$(git log -1 --pretty=format:\"%C(green)%cr%Creset %x09 %C(cyan)%h%Creset %s %C(yellow)(%cn)%Creset\" $f)\"; printf \"%-${MAXLEN}s -- %s\\n\" \"$f\" \"$str\"; done; }; f"
 	lg = log --pretty=format:\"%Cred%h%Creset%Cgreen%d%Creset %s %C(blue)<%an>%Creset %C(yellow)[%ad]%Creset\" --graph --date=short
 	lga = !git lg --all
 	lgm = !git lg --first-parent --merges
