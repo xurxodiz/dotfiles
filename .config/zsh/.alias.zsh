@@ -1,10 +1,6 @@
 # manage dotfiles
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# install rmtrash, (either from the macports or by the brew.)
-alias trash="trash -F"
-alias rm="echo Use 'trash', or the full path i.e. '/bin/rm'"
-
 alias more='less'
 
 # go to git repo root
@@ -20,6 +16,15 @@ alias kerl_activate='(){ . $KERL_DEFAULT_INSTALL_DIR/$1/activate ;}'
 alias ..='cd ..'
 alias ...="cd ../.."
 
+sandbox () {
+  cd "$(mktemp -d)"
+  chmod -R 0700 .
+  if [[ $# -eq 1 ]]; then
+    \mkdir -p "$1"
+    cd "$1"
+    chmod -R 0700 .
+  fi
+}
 
 boop () {
   local last="$?"
