@@ -46,6 +46,8 @@ export SAVEHIST=10000
 HISTFILE=$XDG_STATE_HOME/zsh/history
 # it's not created automatically and history won't be saved otherwise
 mkdir -p `dirname $HISTFILE`
+# Allow you to review before history expansion is executed (eg sudo !!)
+setopt HIST_VERIFY
 
 # For moving .vim into .config/vim
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
