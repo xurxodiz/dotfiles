@@ -66,3 +66,10 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey "^X" edit-command-line
+
+# xan
+function __xan {
+    xan compgen "$1" "$2" "$3"
+}
+complete -F __xan -o default xan
+autoload -Uz bashcompinit && bashcompinit

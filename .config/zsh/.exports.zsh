@@ -106,3 +106,6 @@ export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
 
 # hex xdg
 export MIX_XDG=1
+
+# omz cache
+export ZSH_COMPDUMP=$XDG_CACHE_HOME/.zcompdump
