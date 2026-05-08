@@ -12,7 +12,7 @@ export PAGER='less -RF'
 # virtualenvwrapper config
 export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
-source /usr/local/bin/virtualenvwrapper.sh || source /opt/homebrew/bin/virtualenvwrapper.sh || echo "!! Can't find virtualenvwrapper.sh"
+source /usr/local/bin/virtualenvwrapper.sh 2&>1 || source /opt/homebrew/bin/virtualenvwrapper.sh 2&>1 || echo "!! Can't find virtualenvwrapper.sh"
 
 # show virtualenv in prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=
