@@ -1,5 +1,5 @@
 # fzf
-source (fzf --zsh)
+source <(fzf --zsh)
 
 # useful regex mass renaming
 autoload -U zmv
