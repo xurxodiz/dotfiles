@@ -1,5 +1,5 @@
 # have brew install supersede defaults (e.g. bash)
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 
 # some utility scripts are useful to have in ~/bin
 # some scripts (stack) install things in ~/.local/bin
