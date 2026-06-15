@@ -73,3 +73,7 @@ function __xan {
 }
 complete -F __xan -o default xan
 autoload -Uz bashcompinit && bashcompinit
+
+# asdf
+fpath=($ASDF_DATA_DIR/completions $fpath)
+autoload -Uz _asdf && compdef _asdf asdf
